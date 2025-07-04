@@ -1,28 +1,33 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Upload from './pages/Upload';
-import Results from './pages/Results';
-import HowItWorks from './pages/HowItWorks';
-import AboutContact from './pages/AboutContact';
-import LoginRegister from './pages/LoginRegister';
-import AdminPanel from './pages/AdminPanel';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Navbar from "./components/Layout/Navbar"
+import Footer from "./components/Layout/Footer"
+import Home from "./pages/Home"
+import Upload from "./pages/Upload"
+import Results from "./pages/Results"
+import About from "./pages/About"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import "./App.css"
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/upload" element={<Upload />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
-        <Route path="/about-contact" element={<AboutContact />} />
-        <Route path="/login" element={<LoginRegister />} />
-        <Route path="/admin" element={<AdminPanel />} />
-      </Routes>
+      <div className="App min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/upload" element={<Upload />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
